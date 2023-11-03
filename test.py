@@ -47,6 +47,7 @@ class MyGUI(QMainWindow):
     def sayIt(self, msg):
         msg = self.remove_comments(msg)
         msg = self.remove_spaces(msg)
+        msg = self.addHashtag(msg)
         self.textEdit_2.setText(msg)
 
     def remove_spaces(self, text):
@@ -92,6 +93,16 @@ class MyGUI(QMainWindow):
                 count += 1   # increment the count by 1.
 
         return count  # Return the total count of '%' characters in the text.
+
+    def addHashtag(self, text):
+        result = ''#initial var to put the final text
+        Mix = ['+', '-', '/', '*','=',':','!','? '] #this var contain multiple mixed caracters + = ......
+        for char in text :#take every char from the text
+            if char in Mix:#if the char from the text is on the mix var list
+                result += "#"+char+'#'#add the # before and after the char
+            else :
+                result += char#include the normal char
+        return result#return the final char
 
 def main():
     app = QApplication([])
