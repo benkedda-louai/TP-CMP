@@ -47,7 +47,7 @@ class MyGUI(QMainWindow):
     def sayIt(self, msg):
         msg = self.remove_comments(msg)
         msg = self.remove_spaces(msg)
-        # msg = self.addHashtag(msg)
+        msg = self.add_hash(msg)
         self.textEdit_2.setText(msg)
 
     def remove_spaces(self, text):
@@ -95,9 +95,57 @@ class MyGUI(QMainWindow):
                 count += 1   # increment the count by 1.
 
         return count  # Return the total count of '%' characters in the text.
-
-    # def addHashtag(self, text):
-        
+    
+    def add_hash(self,text):
+        operators = ";./-=*:[]()"
+        output_string = ""
+        i = 0
+        while i < self.longur(text):
+            char = text[i]
+            if char == '+' or char == '-':
+                if i < self.longur(text) - 1 and text[i+1] == '+' or text[i+1]=='-':
+                    output_string += '#++#'
+                    i += 1
+                elif i < self.longur(text) - 1 and self.is_number(text[i+1]):
+                    output_string += '#'+char+text[i+1]+'#'
+                    i+=1
+                elif i < self.longur(text) -1 and text[i+1] != '+' or text[i+1] != '-':
+                    output_string += '#'+char+'#'
+                    i+=1
+                else :
+                    output_string+= '#'+char+'#'
+            elif char == ':' or char == '>' or char == '<' or char == '!' or char == '=' and i < self.longur(text) - 1 and text[i+1] == '=':
+                output_string +=  '#'+char+'=#'
+                i+=1
+            elif char == '.' and i <self.longur(text) - 1 and self.is_number(text[i+1]):
+                output_string += '#'+char+text[i+1]+'#'
+                i+=1
+            elif self.is_number(char) and i < self.longur(text) - 1 and text[i+1] == '.':
+                output_string += '#'+char+text[i+1]+'#'
+                i+=1
+            elif char in operators :
+                 output_string += '#'+char+'#'
+            else :
+                output_string+=char
+                
+            i += 1
+            
+        return output_string
+    
+    def is_number(self,text) :
+        numbers = '1234567890'
+        for char in text:
+            if char in numbers:
+                return True
+            else:
+                return False
+    
+    def longur(self,text) :
+        count = 0
+        for char in text:
+            if char != '':
+                count+=1
+        return count
 
 def main():
     app = QApplication([])
@@ -106,7 +154,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    #todo => replace any length of space with on space 
-    #todo => %anyThings% this is a comment
-

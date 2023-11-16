@@ -56,14 +56,14 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>180</x>
       <y>10</y>
-      <width>111</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>     Online Compiler</string>
+     <string>Online Compiler</string>
     </property>
    </widget>
   </widget>
