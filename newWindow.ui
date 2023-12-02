@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>439</width>
-    <height>287</height>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>40</y>
-      <width>171</width>
+      <width>411</width>
       <height>131</height>
      </rect>
     </property>
@@ -27,14 +27,14 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>190</y>
-      <width>75</width>
-      <height>23</height>
+      <x>24</x>
+      <y>330</y>
+      <width>201</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Run</string>
+     <string>TEST</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
@@ -43,27 +43,37 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>40</y>
-      <width>171</width>
+      <x>20</x>
+      <y>180</y>
+      <width>411</width>
       <height>131</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
+   <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>10</y>
-      <width>81</width>
-      <height>20</height>
+      <x>230</x>
+      <y>330</y>
+      <width>201</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Online Compiler</string>
+     <string>Run</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>47</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TP-COMP</string>
     </property>
    </widget>
   </widget>
@@ -89,6 +99,21 @@
    </property>
   </action>
   <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionOpen_File">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionSave_File">
+   <property name="text">
+    <string>Save File</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
    <property name="text">
     <string>Exit</string>
    </property>

@@ -1,0 +1,64 @@
+   int recognizeWord(char[] word) {
+        return recognizeWordHelper(word, initialState, 0);
+    }
+
+    public boolean isContiansChar(char[] text, char c, int i) {
+        if (i >= text.length)
+            return false;
+        if (text[i] == c)
+            return true;
+        return isContiansChar(text, c, i + 1);
+    }
+
+    private int recognizeWordHelper(char[] word, int currentState, int index) {
+    	if(currentState == -1)return -1;
+        if (index == word.length ||(word[index]=='\0')) {
+            for (int finalState : finalStates) {
+                if (currentState == finalState) {
+                    return finalState;
+                }
+            }
+            return -1;
+        }
+
+        char symbol = word[index];
+if(aoutmatio_matrix[currentState][type_char(symbol)]!= -1)
+	return (recognizeWordHelper(word, aoutmatio_matrix[currentState][type_char(symbol)], index + 1)) ;
+         
+		
+else
+
+
+        return -1;
+    }
+
+int type_char(char ch) {
+    char[] 	nmb = "0123456789".toCharArray(),
+    		big_l = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray(),
+    		small_l = "abcdefghijklmnopqrstuvwxyz".toCharArray(),
+    		spcial_chars= ",();{}[]\"".toCharArray();
+    if(isContiansChar(nmb, ch, 0))return 0;
+    if(ch=='.')return 1;
+    if(ch=='-')return 2;
+    if(ch=='+')return 3;
+    if(isContiansChar(App_aoutmation.concatenateArrays(big_l,small_l), ch, 0))return 4;
+    if(ch=='_')return 5;
+    if(isContiansChar("*/".toCharArray(), ch, 0))return 6;
+    if(ch==':')return 7;
+    if(ch=='=')return 8;
+    if(isContiansChar(spcial_chars, ch, 0))return 9;
+    if(isContiansChar("<>!".toCharArray(), ch, 0))return 10;
+
+
+
+	return 0;
+}
+}
+class Word{
+	char[] content;
+	Boolean is_corect;
+	Word(char[] content , Boolean is_corect){
+		this.content=content;
+		this.is_corect=is_corect;
+	}
+}
