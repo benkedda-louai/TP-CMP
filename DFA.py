@@ -19,7 +19,7 @@ class DFA:
                 [-5,-5,-5,-5,-5,-5,-5,-5,-5,-5],
                 [-5,-5,-5,-5,-5,-5,-5,4,-5,-5],
         ]
-        self.alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        self.alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.-+:=*/;(),"
         self.start_state = 0
         self.final_states = [1,2,3,4,5,6,7,8,9,12,13,14,15,16,17,18]
 
@@ -29,7 +29,7 @@ class DFA:
             if char not in self.alphabet:
                 print(f"Invalid input symbol: {char}")
                 return False
-            input_index = self.alphabet.index(char) if char in self.alphabet else -1
+            input_index = self.get_char_index(char)
             if input_index == -1:
                 print(f"Invalid input symbol: {char}")
                 return False
@@ -43,13 +43,19 @@ class DFA:
                 return False
 
         return self.is_accepting_state(current_state)
-
+    def get_char_index(self, char):
+        # Helper function to get the column index for a character in the matrix
+        char_categories = ['abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '0123456789', '_', '.', '-', '+', ':', '=', '*/', ';(),']
+        for i, category in enumerate(char_categories):
+            if char in category:
+                return i
+        return -1
     def is_accepting_state(self, state):
         return state in self.final_states
 
 
 # Example usage:
 dfa = DFA()
-input_string = "abcd"
+input_string = input("enter a text : ")
 result = dfa.run_dfa(input_string)
 print(f"the string {input_string}, accepted? {result}")
