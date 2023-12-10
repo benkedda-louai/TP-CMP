@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+from ui_file import Ui_MainWindow
 class DFA:
     def __init__(self):
         self.matrix = [
@@ -81,10 +82,10 @@ class DFA:
         return -1
     
     
-class MyGUI(QMainWindow):
+class MyGUI(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MyGUI, self).__init__()
-        uic.loadUi("newWindow.ui", self)
+        self.setupUi(self)
         self.show()
         self.pushButton.clicked.connect(lambda: self.sayIt(self.textEdit.toPlainText()))
         self.pushButton_2.clicked.connect(self.getTextEditValue)
