@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import *
-from PyQt5 import uic
 from ui_file import Ui_MainWindow
 class DFA:
     def __init__(self):
@@ -205,7 +204,7 @@ class MyGUI(QMainWindow, Ui_MainWindow):
                 output_string+='#'+char+'#'
             elif char == '+':
                 if i + 2 < self.length(text) and text[i-1] != '+' and self.is_number(text[i+1]):
-                    output_string += '#'+char
+                    output_string += '#'+char+'#'
                     while i < self.length(text) and self.is_number(text[i]):
                         output_string += text[i]
                         i+=1
@@ -226,7 +225,7 @@ class MyGUI(QMainWindow, Ui_MainWindow):
                     output_string+='#'+char+'#'
             elif char == '-':
                 if i + 2 < self.length(text) and text[i-1] != '-' and self.is_number(text[i+1]) :
-                    output_string += '#'+char
+                    output_string += '#'+char+'#'
                     # i+=1
                     while i < self.length(text) and self.is_number(text[i]) :
                         output_string += text[i]
