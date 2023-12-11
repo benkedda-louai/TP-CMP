@@ -45,9 +45,15 @@ class DFA:
             result, word_type = self.process_word(word)
             if not result:
                 print(f'The word "{word}" is not accepted by the automate.')
-                return [False,result]
+                return [False, result]
             else:
-                print(f'The word "{word}" is accepted by the automate. Type of {word} is : {word_type}')
+                print(f'The word "{word}" is accepted by the automate. Type of {word} is: {word_type}')
+                if word_type == "Identifier" and len(word) <= 6:
+                    print(f'{word} is a valid identifier.')
+                elif word_type == "integer" and int(word) <= 7:
+                    print(f'{word} is a valid integer.')
+                else:
+                    return [False, result]
         return [True,word_type]
 
     def process_word(self, word):
